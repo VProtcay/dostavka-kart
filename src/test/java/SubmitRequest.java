@@ -14,6 +14,8 @@ import static com.codeborne.selenide.Condition.*;
 
 
 public class SubmitRequest {
+
+
     int delay = 15;
 
     @NotNull
@@ -29,6 +31,7 @@ public class SubmitRequest {
 
         @Test
         void shouldSubmitRequest() {
+            System.setProperty("webdriver.chrome.driver", "C:\\dostavka kart\\driver\\win\\chromedriver.exe");
             open("http://localhost:9999/");
             $("[data-test-id=city] .input__control").setValue("Москва");
             $("[data-test-id=date] [placeholder=\"Дата встречи\"]").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE, when(false));
